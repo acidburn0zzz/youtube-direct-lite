@@ -30,7 +30,7 @@ define(['jquery', '../utils', '../constants'], function($, utils, constants) {
         $.each(playlists, function() {
           lis.push(utils.format(constants.PLAYLIST_LI_TEMPLATE, {
             playlistId: this.id,
-            playlistName: this.snippet.title
+            playlistName: utils.escapeXmlEntities(this.snippet.title)
           }));
         });
         $('#playlists').html(lis.sort().join(''));
